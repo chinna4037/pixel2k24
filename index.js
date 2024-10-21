@@ -110,7 +110,7 @@ const events={
     3:{event:"Tech Trek(online)",
         date:"27 October 2024",
         time:"10:00 am",
-        contact:"https://www.pixel.in/eventpages/techtrek.html",
+        contact:"https://www.pixel2k24.in/eventpages/techtrek.html",
         notes:[
           "Starts on 27th at 10:00 AM and ends on 28th at 10:00 AM (24-hour hackathon).",
           "The problem statement will be provided one hour before the event starts on 27th October.",
