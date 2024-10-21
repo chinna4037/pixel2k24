@@ -67,15 +67,6 @@ const db = getFirestore(FirebaseApp);
 app.use(express.json());
 
 
-// const transporter = nodemailer.createTransport({
-//     service: 'gmail',  // You can use other services or your own SMTP server
-//     auth: {
-//       user: 'pixel2k24cse@gmail.com',     
-//       pass: 'vdjebfopvhvtvgtj',     
-//     }
-//   });
-
-// require('dotenv').config();  // Load .env file
 
 const transporter = nodemailer.createTransport({
   service: 'gmail',
@@ -91,7 +82,7 @@ const events={
         time:"03:00 pm",
         contact:"https://www.pixel.in/eventpages/codesprint.html",
         notes:["Every participant must have an account in Unstop platform"],
-        mails:["sudhabalu054@gmail.com","jayasskal10@gmail.com","malepatedeekshitha@gmail.com",],
+        mails:["sudhabalu054@gmail.com","jayasskal10@gmail.com","malepatedeekshitha@gmail.com","cherishma513@gmail.com"],
         type:0,
         webname:"Code Sprint",
         count:1,
@@ -101,7 +92,7 @@ const events={
         time:"10:00 am",
         contact:"https://www.pixel.in/eventpages/codesprint.html",
         notes:["Every participant must have an account in Unstop platform"],
-        mails:["sudhabalu054@gmail.com","jayasskal10@gmail.com","malepatedeekshitha@gmail.com",],
+        mails:["sudhabalu054@gmail.com","jayasskal10@gmail.com","malepatedeekshitha@gmail.com","cherishma513@gmail.com"],
         type:1,
         webname:"Code Sprint",
         count:1,
@@ -151,7 +142,7 @@ const events={
         time:"11:00 am",
         contact:"https://www.pixel.in/eventpages/ppt.html",
         notes:[],
-        mails:["vendikanthamsindhuja@gmail.com","magalanaduk@gmail.com","tmhariram@gmail.com",],
+        mails:["vendikanthamsindhuja@gmail.com","magalanaduk@gmail.com","tmhariram@gmail.com"],
         type:0,
         webname:"Tech Talk",
         count:1,
@@ -160,8 +151,8 @@ const events={
         date:"29 October 2024",
         time:"03:00 pm",
         contact:"https://www.pixel.in/eventpages/instantweb.html",
-        notes:[],
-        mails:["vishnu29v@gmail.com","somaharshitha14@gmail.com"],
+        notes:["If you are comfortable, please bring your own laptop. Otherwise we will provide."],
+        mails:["vishnu29v@gmail.com","somaharshitha14@gmail.com",""],
         type:0,
         webname:"Instant Web",
         count:1,
@@ -178,7 +169,7 @@ const events={
     },
     9:{event:"Chess(online)",
         date:"28 October 2024",
-        time:"06:00 pm",
+        time:"07:00 pm",
         contact:"https://www.pixel.in/eventpages/chess.html",
         notes:[],
         mails:["smdarif0709@gmail.com","habeebnadendla@gmail.com"],
@@ -200,8 +191,8 @@ const events={
         count:1,
     },
     11:{event:"BGMI",
-        date:"28 October 2024",
-        time:"06:00 pm",
+        date:"25 October 2024",
+        time:"08:00 pm",
         contact:"https://www.pixel.in/eventpages/bgmi.html",
         notes:[],
         mails:["fazluurrehman786@gmail.com","harish66600@gmail.com"],
@@ -210,7 +201,7 @@ const events={
         count:1,
     },
     12:{event:"Reel Rita",
-        date:"29 October 2024",
+        date:"28 October 2024",
         time:"10:00 pm",
         contact:"https://www.pixel.in/eventpages/reel.html",
         notes:[],
@@ -220,21 +211,21 @@ const events={
         count:1,
     },
     13:{event:"Meme Mania",
-        date:"29 October 2024",
-        time:"03:00 pm",
+        date:"28 October 2024",
+        time:"10:00 pm",
         contact:"https://www.pixel.in/eventpages/mememania.html",
         notes:[],
-        mails:[],
+        mails:["vishnuvekuluru@gmail.com","nsaiakshay1211@gmail.com"],
         type:1,
         webname:"Meme Mania",
         count:1,
     },
     14:{event:"Photography",
-        date:"29 October 2024",
-        time:"03:00 pm",
+        date:"28 October 2024",
+        time:"10:00 pm",
         contact:"https://www.pixel.in/eventpages/photography.html",
         notes:[],
-        mails:["habeebnadendla@gmail.com"],
+        mails:["habeebnadendla@gmail.com","gurushankar13181@gmail.com"],
         type:1,
         webname:"Photography",
         count:1,
@@ -311,7 +302,6 @@ app.post('/register', async (req, res) => {
         createdAt: new Date().toISOString(),
       });
 
-      events[event]["count"]=events[event]["count"]+1;
         
         for(var i=0;i<currentEvent["mails"].length;i++){
             console.log(currentEvent["mails"][i]);
@@ -329,7 +319,9 @@ app.post('/register', async (req, res) => {
                 ]
             };
 
-            console.log(admMailOptions);
+            events[event]["count"]=events[event]["count"]+1;
+
+            // console.log(admMailOptions);
             await transporter.sendMail(admMailOptions);
         }
 
@@ -348,7 +340,7 @@ app.post('/register', async (req, res) => {
       ]
     };
 
-    console.log(mailOptions);
+    // console.log(mailOptions);
 
     // Send email to the user
     await transporter.sendMail(mailOptions);
